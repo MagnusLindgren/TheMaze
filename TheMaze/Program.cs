@@ -6,12 +6,9 @@ namespace TheMaze
     {
         static bool isRunning = true;
         static void Main(string[] args)
-        {                       
-            while (isRunning == true)
-            {
-                Console.WriteLine("Welcome To The Maze!");
-
-            }
+        {
+            Game newGame = new Game();
+            newGame.Start();
         }
     }
 }
