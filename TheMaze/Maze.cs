@@ -29,5 +29,10 @@ namespace TheMaze
                 }
             }
         }
+
+        public bool IsPassable(int x, int y)
+        {
+            return MapGrid[y, x] == " ";
+        }
     }
 }
