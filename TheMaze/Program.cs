@@ -10,6 +10,7 @@ namespace TheMaze
             while (isRunning == true)
             {
                 Console.WriteLine("Welcome To The Maze!");
+
             }
         }
     }
