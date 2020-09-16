@@ -17,22 +17,26 @@ namespace TheMaze
             Columns = mapGrid.GetLength(1);
         }
 
-        public void DrawMap()
+        public void RenderMap()
         {
             for (int y = 0; y < Rows; y++)
             {
                 for (int x = 0; x < Columns; x++)
                 {
-                    string draw = MapGrid[y, x];
+                    string render = MapGrid[y, x];
                     Console.SetCursorPosition(x, y);
-                    Console.Write(draw);
+                    Console.Write(render);
                 }
             }
         }
 
         public bool IsPassable(int x, int y)
         {
-            return MapGrid[y, x] == " ";
+            if (x < 0 || y < 0 || x > Columns || y > Rows)
+            {
+                return false;
+            }
+            return MapGrid[y, x] == " " || MapGrid[y, x] == "X";
         }
     }
 }
