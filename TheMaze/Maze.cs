@@ -17,7 +17,7 @@ namespace TheMaze
             Columns = mapGrid.GetLength(1);
         }
 
-        public void RenderMap()
+        public void RenderMap() // Draws the map
         {
             for (int y = 0; y < Rows; y++)
             {
@@ -30,7 +30,7 @@ namespace TheMaze
             }
         }
 
-        public bool IsPassable(int x, int y)
+        public bool IsPassable(int x, int y) // Check if player paths is passable
         {
             if (x < 0 || y < 0 || x > Columns || y > Rows)
             {
