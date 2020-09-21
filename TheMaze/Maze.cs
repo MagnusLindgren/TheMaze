@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace TheMaze
@@ -37,6 +38,23 @@ namespace TheMaze
                 return false;
             }
             return MapGrid[y, x] == " " || MapGrid[y, x] == "X";
+        }
+
+        public bool OnTopX(int x, int y) // Check if player is on top of X
+        {
+            if (MapGrid[y, x] == "X")
+            {
+                Game.gameOn = false;
+                Console.Clear();
+                Win();
+            }
+            return false;
+        }
+
+        public void Win()
+        {
+
+            Console.WriteLine("You Win!");
         }
     }
 }

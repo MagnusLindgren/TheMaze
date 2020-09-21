@@ -6,6 +6,7 @@ namespace TheMaze
 {
     class Game
     {
+        public static bool gameOn = true;
         private Maze NewMaze;
         private Player NewPlayer;
 
@@ -29,18 +30,17 @@ namespace TheMaze
 
             PlayGame();
 
-
             //Console.WriteLine("\n\nPress any key to exit...");
             Console.ReadKey();
         }
 
-        private void PlayGame()
+        private void PlayGame() // The gameloop
         {
-            while (true)
+            while (gameOn)
             {
                 RenderGameFrame();
                 PlayerControl();
-
+                NewMaze.OnTopX(NewPlayer.X, NewPlayer.Y);
                 System.Threading.Thread.Sleep(33);
             }
         }
@@ -83,8 +83,10 @@ namespace TheMaze
                         NewPlayer.X += 1;
                     }
                     break;
+                case ConsoleKey.Escape:
+                    gameOn = false;
+                    break;
             }
-                
         }
     }
 }
