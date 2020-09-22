@@ -15,6 +15,9 @@ namespace TheMaze
         {
             Console.Title = "The Maze";
             Console.CursorVisible = false;
+
+            string[,] mapGrid = LevelBuilder.BuildLevel("Level1.txt");
+            /*
             string[,] mapGrid =
             {
                 {"▄", "▄", "▄", "▄", "▄", "▄", "▄", "▄" },
@@ -25,6 +28,7 @@ namespace TheMaze
                 {"█", " ", "█", " ", " ", "█", " ", "X" },
                 {"▀", "▀", "▀", "▀", "▀", "▀", "▀", "▀" },
             };
+            */
             // TODO: Move maps to possible textfiles and add more of them(maybe bigger)
             NewMaze = new Maze(mapGrid);
             NewPlayer = new Player(1, 1);
@@ -59,8 +63,12 @@ namespace TheMaze
 
         private void PlayerControl()
         {
-            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            ConsoleKey playerInput = keyInfo.Key;
+            ConsoleKey playerInput;
+            do
+            {
+                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                playerInput = keyInfo.Key;
+            } while (Console.KeyAvailable);
 
             switch (playerInput)
             {
