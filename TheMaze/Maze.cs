@@ -10,7 +10,6 @@ namespace TheMaze
         private string[,] MapGrid;
         private int Rows;
         private int Columns;
-        private ConsoleColor MazeColor;
 
         public Maze(string[,] mapGrid)
         {

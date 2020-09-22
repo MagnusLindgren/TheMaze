@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace TheMaze
@@ -12,6 +13,7 @@ namespace TheMaze
 
         public void Start()
         {
+            Console.Title = "The Maze";
             Console.CursorVisible = false;
             string[,] mapGrid =
             {
@@ -62,25 +64,25 @@ namespace TheMaze
 
             switch (playerInput)
             {
-                case ConsoleKey.W:
+                case ConsoleKey.UpArrow:
                     if (NewMaze.IsPassable(NewPlayer.X, NewPlayer.Y - 1))
                     {
                         NewPlayer.Y -= 1;
                     }
                     break;
-                case ConsoleKey.S:
+                case ConsoleKey.DownArrow:
                     if (NewMaze.IsPassable(NewPlayer.X, NewPlayer.Y + 1))
                     {
                         NewPlayer.Y += 1;
                     }
                     break;
-                case ConsoleKey.A:
+                case ConsoleKey.LeftArrow:
                     if (NewMaze.IsPassable(NewPlayer.X - 1, NewPlayer.Y ))
                     {
                         NewPlayer.X -= 1;
                     }
                     break;
-                case ConsoleKey.D:
+                case ConsoleKey.RightArrow:
                     if (NewMaze.IsPassable(NewPlayer.X + 1, NewPlayer.Y ))
                     {
                         NewPlayer.X += 1;
