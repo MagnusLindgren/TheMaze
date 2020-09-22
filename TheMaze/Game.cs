@@ -13,7 +13,6 @@ namespace TheMaze
         public void Start()
         {
             Console.CursorVisible = false;
-            // TODO more levels/maps
             string[,] mapGrid =
             {
                 {"▄", "▄", "▄", "▄", "▄", "▄", "▄", "▄" },
@@ -24,7 +23,7 @@ namespace TheMaze
                 {"█", " ", "█", " ", " ", "█", " ", "X" },
                 {"▀", "▀", "▀", "▀", "▀", "▀", "▀", "▀" },
             };
-
+            // TODO: Move maps to possible textfiles and add more of them(maybe bigger)
             NewMaze = new Maze(mapGrid);
             NewPlayer = new Player(1, 1);
 
@@ -40,7 +39,11 @@ namespace TheMaze
             {
                 RenderGameFrame();
                 PlayerControl();
-                NewMaze.OnTopX(NewPlayer.X, NewPlayer.Y);
+                string elemantAtPlayer = NewMaze.GetPosition(NewPlayer.X, NewPlayer.Y);
+                if (elemantAtPlayer == "X")
+                {
+                    break;
+                }
                 System.Threading.Thread.Sleep(33);
             }
         }

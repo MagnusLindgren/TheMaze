@@ -10,6 +10,7 @@ namespace TheMaze
         private string[,] MapGrid;
         private int Rows;
         private int Columns;
+        private ConsoleColor MazeColor;
 
         public Maze(string[,] mapGrid)
         {
@@ -23,9 +24,19 @@ namespace TheMaze
             for (int y = 0; y < Rows; y++)
             {
                 for (int x = 0; x < Columns; x++)
-                {
+                {                   
                     string render = MapGrid[y, x];
                     Console.SetCursorPosition(x, y);
+
+                    if (render == "X")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+
                     Console.Write(render);
                 }
             }
@@ -40,21 +51,15 @@ namespace TheMaze
             return MapGrid[y, x] == " " || MapGrid[y, x] == "X";
         }
 
-        public bool OnTopX(int x, int y) // Check if player is on top of X
+        public string GetPosition(int x, int y) // Check where the player is
         {
-            if (MapGrid[y, x] == "X")
-            {
-                Game.gameOn = false;
-                Console.Clear();
-                Win();
-            }
-            return false;
+            return MapGrid[y, x];
         }
 
         public void Win()
         {
-
             Console.WriteLine("You Win!");
+            Console.ReadKey();
         }
     }
 }
