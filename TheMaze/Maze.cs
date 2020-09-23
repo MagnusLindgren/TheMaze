@@ -54,21 +54,45 @@ namespace TheMaze
             return MapGrid[y, x];
         }
 
-        public static bool MathQuiz() // Move to enemyclass when and if done
+        public static int MathQuiz() // Move to  own class when and if done
         {
-            //TODO: Math logic
-            Random rng = new Random();
-            int x = rng.Next(1, 10);
-            int y = rng.Next(1, 10);
-            int result = x * y;
-            Console.WriteLine("What is {0} * {1}?", x, y);
-            Console.Write("Answer: ");
-            int playerAnswer = Int32.Parse(Console.ReadLine());
-            while (playerAnswer != result)
+            int tries = 1;
+            while (true)
             {
-                
+                Random rng = new Random();
+                int playerAnswer = 0;
+                int x = rng.Next(1, 10);
+                int y = rng.Next(1, 10);
+                int result = x * y;
+                Console.WriteLine("What is {0} * {1}?", x, y);
+                while (true)
+                {                   
+                    Console.Write("Answer: ");
+                    playerAnswer = Int32.Parse(Console.ReadLine()); 
+
+                    if (playerAnswer == result)
+                    {
+                        tries++;
+                        Console.WriteLine("Congrats, you beaten the monster!\n\nPress any key to continue...");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else
+                    {
+                        tries++;
+                        if (tries > 3)
+                        {
+                            Console.WriteLine("You died!!!\n\nPress any key to continue...");
+                            Console.ReadKey();
+                            break;
+                        }
+                        Console.WriteLine("The monster is one step closer. Please try again...");
+                        Console.WriteLine("You have {0} tries left", 4 - tries);
+                    }
+                }
+                break;
             }
-            return true;
+            return tries;
         }
     }
 }

@@ -36,7 +36,9 @@ namespace TheMaze
                         isRunning = false;
                         break;
                     case ConsoleKey.T:
-                        Maze.MathQuiz();
+                        int score = Maze.MathQuiz();
+                        Console.WriteLine(score);
+                        Console.ReadKey();
                         break;
                     default:
                         Console.WriteLine("Invalid input, please enter an option from the menu.");
