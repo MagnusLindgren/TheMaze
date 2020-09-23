@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace TheMaze
@@ -41,7 +42,7 @@ namespace TheMaze
             }
         }
 
-        public bool IsPassable(int x, int y) // Check if player paths is passable
+        public bool IsPassable(int x, int y) // Check if players paths is passable
         {
             if (x < 0 || y < 0 || x > Columns || y > Rows)
             {
@@ -50,15 +51,26 @@ namespace TheMaze
             return MapGrid[y, x] == " " || MapGrid[y, x] == "X";
         }
 
-        public string GetPosition(int x, int y) // Check where the player is
+        public string GetPosition(int x, int y) // Check where anything is
         {
             return MapGrid[y, x];
         }
 
-        public void Win()
+        public static bool MathQuiz() // Move to enemyclass when and if done
         {
-            Console.WriteLine("You Win!");
-            Console.ReadKey();
+            //TODO: Math logic
+            Random rng = new Random();
+            int x = rng.Next(1, 10);
+            int y = rng.Next(1, 10);
+            int result = x * y;
+            Console.WriteLine("What is {0} * {1}?", x, y);
+            Console.Write("Answer: ");
+            int playerAnswer = Int32.Parse(Console.ReadLine());
+            if (playerAnswer == result)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

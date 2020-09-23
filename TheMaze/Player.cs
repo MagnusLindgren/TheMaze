@@ -15,7 +15,7 @@ namespace TheMaze
         {
             X = x;
             Y = y;
-            PlayerAvatar = "O";
+            PlayerAvatar = "¤";
             PlayerColor = ConsoleColor.Green;
         }
 

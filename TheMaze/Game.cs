@@ -17,21 +17,9 @@ namespace TheMaze
             Console.CursorVisible = false;
 
             string[,] mapGrid = LevelBuilder.BuildLevel("Level1.txt");
-            /*
-            string[,] mapGrid =
-            {
-                {"▄", "▄", "▄", "▄", "▄", "▄", "▄", "▄" },
-                {"█", " ", "█", "█", " ", "█", " ", "█" },
-                {"█", " ", "█", " ", " ", " ", " ", "█" },
-                {"█", " ", "█", "█", " ", "█", " ", "█" },
-                {"█", " ", " ", " ", " ", "█", " ", "█" },
-                {"█", " ", "█", " ", " ", "█", " ", "X" },
-                {"▀", "▀", "▀", "▀", "▀", "▀", "▀", "▀" },
-            };
-            */
-            // TODO: Move maps to possible textfiles and add more of them(maybe bigger)
+
             NewMaze = new Maze(mapGrid);
-            NewPlayer = new Player(1, 1);
+            NewPlayer = new Player(1, 1); // TODO: Set postion from txtfile.
 
             PlayGame();
 
@@ -96,7 +84,7 @@ namespace TheMaze
                         NewPlayer.X += 1;
                     }
                     break;
-                case ConsoleKey.Escape:
+                case ConsoleKey.Escape: // buggigt när man kommer ut till menyn
                     gameOn = false;
                     break;
             }
