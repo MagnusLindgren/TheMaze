@@ -30,6 +30,10 @@ namespace TheMaze
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                     }
+                    else if (render == "?")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;

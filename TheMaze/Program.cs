@@ -16,7 +16,6 @@ namespace TheMaze
                 Console.WriteLine("2) How to play");
                 Console.WriteLine("3) High score");
                 Console.WriteLine("Q) Quit the program");
-                Console.WriteLine("T) Test MathQuiz");
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 ConsoleKey menuInput = keyInfo.Key;
 
@@ -34,11 +33,6 @@ namespace TheMaze
                         break;
                     case ConsoleKey.Q:
                         isRunning = false;
-                        break;
-                    case ConsoleKey.T:
-                        int score = Maze.MathQuiz();
-                        Console.WriteLine(score);
-                        Console.ReadKey();
                         break;
                     default:
                         Console.WriteLine("Invalid input, please enter an option from the menu.");
