@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks.Sources;
+using System.Xml.Serialization;
 
 namespace TheMaze
 {
@@ -10,6 +12,7 @@ namespace TheMaze
         public static bool gameOn = true;
         private Maze NewMaze;
         private Player NewPlayer;
+        public int Score;
 
         public void Start()
         {
@@ -34,12 +37,19 @@ namespace TheMaze
                 RenderGameFrame();
                 PlayerControl();
                 string elemantAtPlayer = NewMaze.GetPosition(NewPlayer.X, NewPlayer.Y);
+                if (elemantAtPlayer == "?")
+                {
+                    Score = Score + Maze.MathQuiz();
+                }
                 if (elemantAtPlayer == "X")
                 {
+                    Maze.MathQuiz();
                     break;
                 }
                 System.Threading.Thread.Sleep(33);
             }
+            Console.WriteLine("Your final score was {0}\n\nPress any key to continue...", Score);
+            Console.ReadKey();
         }
 
         private void RenderGameFrame()

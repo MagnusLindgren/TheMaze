@@ -46,7 +46,7 @@ namespace TheMaze
             {
                 return false;
             }
-            return MapGrid[y, x] == " " || MapGrid[y, x] == "X";
+            return MapGrid[y, x] == " " || MapGrid[y, x] == "X" || MapGrid[y, x] == "?";
         }
 
         public string GetPosition(int x, int y) // Check where anything is
@@ -56,7 +56,8 @@ namespace TheMaze
 
         public static int MathQuiz() // Move to  own class when and if done
         {
-            int tries = 1;
+            Console.Clear();
+            int tries = 3;
             while (true)
             {
                 Random rng = new Random();
@@ -72,22 +73,22 @@ namespace TheMaze
 
                     if (playerAnswer == result)
                     {
-                        tries++;
+                        tries--;
                         Console.WriteLine("Congrats, you beaten the monster!\n\nPress any key to continue...");
                         Console.ReadKey();
                         break;
                     }
                     else
                     {
-                        tries++;
-                        if (tries > 3)
+                        tries--;
+                        if (tries < 1)
                         {
-                            Console.WriteLine("You died!!!\n\nPress any key to continue...");
+                            Console.WriteLine("No points!!!\n\nPress any key to continue...");
                             Console.ReadKey();
                             break;
                         }
                         Console.WriteLine("The monster is one step closer. Please try again...");
-                        Console.WriteLine("You have {0} tries left", 4 - tries);
+                        Console.WriteLine("You have {0} tries left", tries);
                     }
                 }
                 break;
