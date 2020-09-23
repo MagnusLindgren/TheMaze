@@ -43,7 +43,7 @@ namespace TheMaze
                 }
                 if (elemantAtPlayer == "X")
                 {
-                    Maze.MathQuiz();
+                    Score = Score + Maze.MathQuiz();
                     break;
                 }
                 System.Threading.Thread.Sleep(33);

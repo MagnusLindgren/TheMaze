@@ -73,8 +73,7 @@ namespace TheMaze
 
                     if (playerAnswer == result)
                     {
-                        tries--;
-                        Console.WriteLine("Congrats, you beaten the monster!\n\nPress any key to continue...");
+                        Console.WriteLine("Congrats, you got {0} points!\n\nPress any key to continue...", tries);
                         Console.ReadKey();
                         break;
                     }
