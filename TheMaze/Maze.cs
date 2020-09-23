@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace TheMaze
@@ -66,11 +64,11 @@ namespace TheMaze
             Console.WriteLine("What is {0} * {1}?", x, y);
             Console.Write("Answer: ");
             int playerAnswer = Int32.Parse(Console.ReadLine());
-            if (playerAnswer == result)
+            while (playerAnswer != result)
             {
-                return true;
+                
             }
-            return false;
+            return true;
         }
     }
 }

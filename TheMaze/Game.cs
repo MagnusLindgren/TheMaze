@@ -24,7 +24,7 @@ namespace TheMaze
             PlayGame();
 
             //Console.WriteLine("\n\nPress any key to exit...");
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         private void PlayGame() // The gameloop
