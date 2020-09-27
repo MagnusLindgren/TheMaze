@@ -90,7 +90,7 @@ namespace TheMaze
                             Console.ReadKey();
                             break;
                         }
-                        Console.WriteLine("The monster is one step closer. Please try again...");
+                        Console.WriteLine("Wrong, please try again... ");
                         Console.WriteLine("You have {0} tries left", tries);
                     }
                 }

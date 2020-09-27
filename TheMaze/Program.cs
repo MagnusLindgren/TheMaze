@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace TheMaze
 {
@@ -10,12 +11,12 @@ namespace TheMaze
             while (isRunning)
             {
                 Console.Clear();
-                
                 Console.WriteLine("Please choose an option");
                 Console.WriteLine("1) Play the game");
-                Console.WriteLine("2) How to play");
+                Console.WriteLine("2) Star Wars suprise");
                 Console.WriteLine("3) High score");
                 Console.WriteLine("Q) Quit the program");
+
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                 ConsoleKey menuInput = keyInfo.Key;
 
@@ -26,6 +27,7 @@ namespace TheMaze
                         newGame.Start();
                         break;
                     case ConsoleKey.D2:
+                        Piano();
                         // TODO: Instructions();
                         break;
                     case ConsoleKey.D3:
@@ -39,8 +41,26 @@ namespace TheMaze
                         break;
                 }
             }
-
-
         }
-    }
+
+        static void Piano() // test
+        {
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+            Console.Beep(250, 500);
+            Thread.Sleep(25);
+            Console.Beep(350, 250);
+            Console.Beep(300, 500);
+            Thread.Sleep(25);
+            Console.Beep(250, 500);
+            Thread.Sleep(50);
+            Console.Beep(350, 250);
+            Console.Beep(300, 500);
+            Thread.Sleep(50);
+        }
+    }           
 }

@@ -39,17 +39,17 @@ namespace TheMaze
                 string elemantAtPlayer = NewMaze.GetPosition(NewPlayer.X, NewPlayer.Y);
                 if (elemantAtPlayer == "?")
                 {
-                    Score = Score + Maze.MathQuiz();
+                    elemantAtPlayer.Replace("?", " ");
+                    Score += Maze.MathQuiz();
                 }
                 if (elemantAtPlayer == "X")
                 {
-                    Score = Score + Maze.MathQuiz();
+                    Score +=  Maze.MathQuiz();
                     break;
-                }
+                }                
                 System.Threading.Thread.Sleep(33);
             }
-            Console.WriteLine("Your final score was {0}\n\nPress any key to continue...", Score);
-            Console.ReadKey();
+            EndGame();
         }
 
         private void RenderGameFrame()
@@ -57,6 +57,14 @@ namespace TheMaze
             Console.Clear();
             NewMaze.RenderMap();
             NewPlayer.Render();
+        }
+
+        private void EndGame()
+        {
+            Console.Clear();
+            Console.WriteLine("GAME OVER!");
+            Console.WriteLine("Your final score was {0}\n\nPress any key to continue...", Score);
+            Console.ReadKey();
         }
 
         private void PlayerControl()
@@ -95,7 +103,9 @@ namespace TheMaze
                     }
                     break;
                 case ConsoleKey.Escape: // buggigt när man kommer ut till menyn
+                    Score = 0;
                     gameOn = false;
+                    EndGame();
                     break;
             }
         }
