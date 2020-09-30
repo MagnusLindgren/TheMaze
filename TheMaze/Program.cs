@@ -13,7 +13,7 @@ namespace TheMaze
                 Console.Clear();
                 Console.WriteLine("Please choose an option");
                 Console.WriteLine("1) Play the game");
-                Console.WriteLine("2) Star Wars suprise");
+                Console.WriteLine("2) Intructions");
                 Console.WriteLine("3) High score");
                 Console.WriteLine("Q) Quit the program");
 
@@ -27,14 +27,18 @@ namespace TheMaze
                         newGame.Start();
                         break;
                     case ConsoleKey.D2:
-                        Piano();
+                        Console.WriteLine("Not implemented yet!");
                         // TODO: Instructions();
                         break;
                     case ConsoleKey.D3:
+                        Console.WriteLine("Not implemented yet!");
                         // TODO: HighScore();
                         break;
                     case ConsoleKey.Q:
                         isRunning = false;
+                        break;
+                    case ConsoleKey.D0: // EasterEgg ;)
+                        Piano();
                         break;
                     default:
                         Console.WriteLine("Invalid input, please enter an option from the menu.");
@@ -43,7 +47,7 @@ namespace TheMaze
             }
         }
 
-        static void Piano() // test
+        static void Piano() // LjudTest
         {
             Console.Beep(300, 500);
             Thread.Sleep(50);
