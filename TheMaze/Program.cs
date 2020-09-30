@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.IO;
 
 namespace TheMaze
 {
@@ -11,10 +12,13 @@ namespace TheMaze
             while (isRunning)
             {
                 Console.Clear();
-                Console.WriteLine("Please choose an option");
+                Console.CursorVisible = false;
+                RunText(@"C:\Users\mange\source\repos\TheMaze\TheMaze\TitleMenu.txt");
+                Console.WriteLine("\n\nPlease choose an option:");
                 Console.WriteLine("1) Play the game");
                 Console.WriteLine("2) Intructions");
                 Console.WriteLine("3) High score");
+                Console.WriteLine("4) Rapport");
                 Console.WriteLine("Q) Quit the program");
 
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
@@ -34,6 +38,11 @@ namespace TheMaze
                         Console.WriteLine("Not implemented yet!");
                         // TODO: HighScore();
                         break;
+                    case ConsoleKey.D4:
+                        Console.Clear();
+                        RunText(@"C:\Users\mange\source\repos\TheMaze\TheMaze\Rapport.txt");
+                        Console.ReadLine();
+                        break;
                     case ConsoleKey.Q:
                         isRunning = false;
                         break;
@@ -44,6 +53,26 @@ namespace TheMaze
                         Console.WriteLine("Invalid input, please enter an option from the menu.");
                         break;
                 }
+            }
+        }
+
+        static void RunText(string path) //Read and display text from txt file
+        {
+            try
+            {
+                StreamReader sr = new StreamReader(path);
+                String read = sr.ReadLine();
+                while (read != null)
+                {
+                    Console.WriteLine(read);
+                    read = sr.ReadLine();
+                }
+                sr.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+                Console.ReadLine();
             }
         }
 

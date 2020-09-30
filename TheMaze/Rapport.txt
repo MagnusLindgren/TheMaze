@@ -1,0 +1,29 @@
+﻿Rapport för "The Maze"
+
+När jag började med uppgiften gjorde jag som jag alltid 
+gör när jag ska programmera något.Jag satte mig och 
+skrev ner vad jag hade för idé i ett block och skrev 
+upp vad jag ville ha med för funktioner. Det är i 
+princip en lista över vad som kan komma behövas att 
+programmeras.
+
+Listan såg ut så här:
+
+* Spelare
+* Fiende/hinder
+* Karta
+* Spelmotor (Loop)
+* Meny
+
+Det gav mig någonstans att börja och dessutom så gav 
+det mig ett hum om vad jag behövde för klasser. 
+Sedan försöker jag alltid att skriva in metoder och 
+funtioner som kommentarer när jag skriver koden. Det 
+är ju då jag kommer på det. Så fort jag fastnar på 
+något, som tex en loop jag inte får att fungera som 
+jag vill, så går jag tillbaka till blocket och 
+försöker rita upp vad det är jag vill åstakomma och 
+det brukar ge mig en bra bild av problemet jag 
+försöker lösa.
+
+Magnus Lindgren 20200930
