@@ -9,6 +9,7 @@ namespace TheMaze
         static bool isRunning = true;  // Menu: TODO the menu
         static void Main(string[] args)
         {
+            Console.SetWindowSize(60, 40);
             while (isRunning)
             {
                 Console.Clear();

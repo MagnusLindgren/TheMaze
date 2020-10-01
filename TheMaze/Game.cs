@@ -19,15 +19,12 @@ namespace TheMaze
             Console.Title = "The Maze";
             Console.CursorVisible = false;
 
-            string[,] mapGrid = LevelBuilder.BuildLevel("Level1.txt");
+            string[,] mapGrid = LevelBuilder.BuildLevel("Level1.txt"); // TODO: More levels and a loop that iterates trough them
 
             NewMaze = new Maze(mapGrid);
             NewPlayer = new Player(1, 1); // TODO: Set postion from txtfile.
-
+ 
             PlayGame();
-
-            //Console.WriteLine("\n\nPress any key to exit...");
-            //Console.ReadKey();
         }
 
         private void PlayGame() // The gameloop
@@ -39,7 +36,7 @@ namespace TheMaze
                 string elemantAtPlayer = NewMaze.GetPosition(NewPlayer.X, NewPlayer.Y);
                 if (elemantAtPlayer == "?")
                 {
-                    elemantAtPlayer.Replace("?", " ");
+                    elemantAtPlayer.Replace("?", " "); // TODO: Fungerar inte som jag vill, kolla upp
                     Score = Maze.CalculateScore(Score, Maze.MathQuiz());
                 }
                 if (elemantAtPlayer == "X")

@@ -99,7 +99,7 @@ namespace TheMaze
             return tries;
         }
 
-        static public int CalculateScore(int x, int y)
+        public static int CalculateScore(int x, int y)
         {
             return x + y;
         }
