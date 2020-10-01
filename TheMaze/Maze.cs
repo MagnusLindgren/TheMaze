@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TheMaze
 {
-    class Maze
+    public class Maze
     {
         private string[,] MapGrid;
         private int Rows;
@@ -97,6 +97,11 @@ namespace TheMaze
                 break;
             }
             return tries;
+        }
+
+        static public int CalculateScore(int x, int y)
+        {
+            return x + y;
         }
     }
 }

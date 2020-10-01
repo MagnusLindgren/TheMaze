@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace TheMaze
 {
-    class Game
+    public class Game
     {
         public static bool gameOn = true;
         private Maze NewMaze;
@@ -40,11 +40,11 @@ namespace TheMaze
                 if (elemantAtPlayer == "?")
                 {
                     elemantAtPlayer.Replace("?", " ");
-                    Score += Maze.MathQuiz();
+                    Score = Maze.CalculateScore(Score, Maze.MathQuiz());
                 }
                 if (elemantAtPlayer == "X")
                 {
-                    Score +=  Maze.MathQuiz();
+                    Score = Maze.CalculateScore(Score, Maze.MathQuiz());
                     break;
                 }                
                 System.Threading.Thread.Sleep(33);
